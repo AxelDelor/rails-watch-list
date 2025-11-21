@@ -10,19 +10,23 @@
     <% end %>
 </div>
 
-
-<div class="flex justify-center py-6 bg-neutral min-h-screen">
-  <div class="grid gap-8 justify-center grid-cols-3">
-    <% @bookmarks.each do |bookmark| %>
-      <div class="card bg-base-100 w-90">
-        <figure class="px-10 pt-10">
-          <img src="<%= bookmark.movie.poster_url %>" alt="Shoes" class="rounded-xl" />
-        </figure>
-        <div class="card-body items-center text-center">
-          <h2 class="card-title"><%= bookmark.movie.title %></h2>
-          <p><%= bookmark.movie.overview %></p>
+<div class="container">
+  <% if @bookmarks.empty? %>
+    <p class="text-3xl text-white text-center">Désolé, cette liste est actuellement vide</p>
+    <% else %>
+  <div class="grid gap-4 grid-cols-3">
+      <% @bookmarks.each do |bookmark| %>
+        <div class="card bg-base-100">
+          <figure class="px-10 pt-10">
+            <img src="<%= bookmark.movie.poster_url %>" alt="Shoes" class="rounded-xl" />
+          </figure>
+          <div class="card-body items-center text-center">
+            <h2 class="card-title"><%= bookmark.movie.title %></h2>
+            <p><%= bookmark.movie.overview %></p>
+            <%= link_to "Remove from this list", bookmark_path(bookmark.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} , class: "btn btn-primary"  %>
+          </div>
         </div>
-      </div>
-      <% end %>
+        <% end %>
   </div>
+  <% end %>
 </div>
