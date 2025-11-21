@@ -5,7 +5,7 @@
   <p class="title-1">Welcome to your lists</p>
     <%= simple_form_for @list do |f| %>
       <%= f.input :name %>
-      <%= f.submit "Add a list", class: "btn btn-primary"%>
+      <%= f.submit "Add a list", class: ""%>
     <% end %>
   </div>
 
@@ -13,7 +13,7 @@
   <div class="grid gap-4 grid-cols-4">
     <% @lists.each do |list| %>
         <%= link_to list_path(list) do %>
-        <div class="card bg-base-100 h-40 flex justify-center">
+        <div class="bg-base-100 h-40 flex justify-center">
         <p class="text-center font-bold"><%= list.name %></p>
       </div>
       <% end %>
