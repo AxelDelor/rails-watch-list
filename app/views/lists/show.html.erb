@@ -1,12 +1,17 @@
 <div style="background-image: url(https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); background-size: cover;
     background-position: center;
     width: 100% ;
-    height: 500px ;" class="flex justify-center items-center">
+    height: 500px ;" class="flex flex-col justify-center items-center">
   <p class="title-1"><%= @list.name %></p>
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :comment %>
+    <%= f.association :movie%>
+    <%= f.submit "Add a bookmark", class:"btn btn-primary" %>
+    <% end %>
 </div>
 
 
-<div class="flex justify-center py-6 bg-neutral">
+<div class="flex justify-center py-6 bg-neutral min-h-screen">
   <div class="grid gap-8 justify-center grid-cols-3">
     <% @bookmarks.each do |bookmark| %>
       <div class="card bg-base-100 w-90">
