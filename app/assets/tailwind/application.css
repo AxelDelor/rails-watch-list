@@ -17,3 +17,8 @@ html {
   width: 1200px;
   margin: 25px auto;
 }
+
+.card-film {
+  background-color: whitesmoke;
+  border-radius: 36px;
+}

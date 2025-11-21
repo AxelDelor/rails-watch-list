@@ -16,7 +16,7 @@
     <% else %>
   <div class="grid gap-4 grid-cols-3">
       <% @bookmarks.each do |bookmark| %>
-        <div class="bg-base-100">
+        <div class="card-film">
           <figure class="px-10 pt-10">
             <img src="<%= bookmark.movie.poster_url %>" alt="Shoes" class="rounded-xl" />
           </figure>
